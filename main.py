@@ -22,7 +22,9 @@ def query_taste_graph(entity_type: str, query_term: str):
         return response.json()
     except requests.exceptions.RequestException as e:
         return {"error": str(e)}
-
+@app.route("/")
+def index():
+    return "TasteGraph Agent Pipeline Active", 200
 @app.route("/api/recommend", methods=["POST"])
 def recommend_pipeline():
     data = request.json
