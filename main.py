@@ -12,12 +12,17 @@ def query_taste_graph(entity_type: str, query_term: str):
         "X-Api-Key": QLOO_API_KEY,
         "Accept": "application/json"
     }
+    
+    # Use the correct v2 search or recommendations endpoint path and parameters
     params = {
-        "filter": query_term,
+        "query": query_term,
+        "entity_type": entity_type,
         "limit": 5
     }
+    
     try:
-        response = requests.get(f"{QLOO_BASE_URL}/{entity_type}", headers=headers, params=params, timeout=10)
+        # Update the URL to the correct Qloo v2 endpoint
+        response = requests.get("https://hackathon.api.qloo.com/v2/search", headers=headers, params=params)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
