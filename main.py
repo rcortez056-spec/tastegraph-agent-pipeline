@@ -9,7 +9,7 @@ QLOO_BASE_URL = "https://api.qloo.com/v1"
 
 def query_taste_graph(entity_type: str, query_term: str):
     headers = {
-        "X-API-Key": QLOO_API_KEY,
+        "X-Api-Key": QLOO_API_KEY,
         "Accept": "application/json"
     }
     params = {
