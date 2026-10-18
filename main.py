@@ -21,8 +21,8 @@ def query_taste_graph(entity_type: str, query_term: str):
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
-    error_detail = e.response.text if e.response else str(e)
-    return {"error": error_detail}
+        error_detail = e.response.text if e.response else str(e)
+        return {"error": error_detail}
 
 @app.route("/")
 def index():
