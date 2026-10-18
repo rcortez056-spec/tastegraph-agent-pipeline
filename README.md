@@ -4,6 +4,13 @@ An autonomous agent pipeline that queries the Qloo API to deliver recommendation
 
 ---
 
+## 🛠️ Tech Stack
+* **Backend:** Python / Flask / Gunicorn
+* **Hosting:** Google Cloud Run
+* **Integration:** Qloo Hackathon v2 API
+
+---
+
 ## 🚀 Quick Start (For Judges)
 
 You can run this pipeline locally in under a minute using Python or Docker[cite: 6].
@@ -20,10 +27,3 @@ pip install -r requirements.txt
 
 # Run the app locally
 python main.py
-
-🛠️ Tech Stack
-Backend: Python / Flask / Gunicorn
-
-Hosting: Google Cloud Run
-
-Integration: Qloo Hackathon v2 API
