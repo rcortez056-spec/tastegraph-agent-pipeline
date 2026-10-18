@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template_string
 app = Flask(__name__)
 
 QLOO_API_KEY = os.getenv("QLOO_API_KEY", "").strip()
-QLOO_BASE_URL = "https://api.qloo.com/v1"
+QLOO_BASE_URL = "https://hackathon.api.qloo.com/v2"
 
 def query_taste_graph(entity_type: str, query_term: str):
     headers = {
