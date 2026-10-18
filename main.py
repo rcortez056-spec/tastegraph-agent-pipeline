@@ -24,7 +24,7 @@ def query_taste_graph(entity_type: str, query_term: str):
         return {"error": str(e)}
        @app.route("/")
 def index():
-    return """
+    html_content = """
     <html>
         <head>
             <title>TasteGraph Agent Pipeline</title>
@@ -47,11 +47,13 @@ def index():
                     <li><code>GET /</code> - System Status & Overview (This Page)</li>
                     <li><code>POST /api/recommend</code> - Main agentic recommendation pipeline endpoint</li>
                 </ul>
-                <p><em>Built for hackathon evaluation. Check the <a href="https://github.com/rcortez056-spec/tastegraph-agent-pipeline" target="_blank">GitHub Repository</a> for full code and setup guides.</em></p>
+                <em>Built for hackathon evaluation. Check the <a href="https://github.com/rcortez056-spec/tastegraph-agent-pipeline" target="_blank">GitHub Repository</a> for full code and setup guides.</em></p>
             </div>
         </body>
     </html>
-    """, 200
+    """
+    return render_template_string(html_content), 200
+
 @app.route("/api/recommend", methods=["POST"])
 def recommend_pipeline():
     data = request.json
@@ -66,7 +68,3 @@ def recommend_pipeline():
         "query": query_term,
         "results": graph_results
     })
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host="0.0.0.0", port=port)
