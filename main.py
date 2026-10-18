@@ -22,9 +22,36 @@ def query_taste_graph(entity_type: str, query_term: str):
         return response.json()
     except requests.exceptions.RequestException as e:
         return {"error": str(e)}
-@app.route("/")
+       @app.route("/")
 def index():
-    return "TasteGraph Agent Pipeline Active", 200
+    return """
+    <html>
+        <head>
+            <title>TasteGraph Agent Pipeline</title>
+            <style>
+                body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 700px; margin: 60px auto; padding: 0 20px; color: #333; line-height: 1.6; background: #f9f9f9; }
+                .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0066cc; }
+                h1 { color: #111; margin-top: 0; }
+                .status { display: inline-block; background: #e6f4ea; color: #137333; padding: 4px 12px; border-radius: 12px; font-weight: 600; font-size: 14px; margin-bottom: 20px; }
+                code { background: #f1f3f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+                ul { padding-left: 20px; }
+            </style>
+        </head>
+        <body>
+            <div class="card">
+                <h1>TasteGraph Agent Pipeline</h1>
+                <div class="status">● System Active & Healthy</div>
+                <p>Welcome to the production deployment of the TasteGraph autonomous agent backend, hosted on Google Cloud Run.</p>
+                <h3>Available Endpoints:</h3>
+                <ul>
+                    <li><code>GET /</code> - System Status & Overview (This Page)</li>
+                    <li><code>POST /api/recommend</code> - Main agentic recommendation pipeline endpoint</li>
+                </ul>
+                <p><em>Built for hackathon evaluation. Check the <a href="https://github.com/rcortez056-spec/tastegraph-agent-pipeline" target="_blank">GitHub Repository</a> for full code and setup guides.</em></p>
+            </div>
+        </body>
+    </html>
+    """, 200
 @app.route("/api/recommend", methods=["POST"])
 def recommend_pipeline():
     data = request.json
