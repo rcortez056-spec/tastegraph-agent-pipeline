@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template_string
 
 app = Flask(__name__)
 
@@ -22,9 +22,11 @@ def query_taste_graph(entity_type: str, query_term: str):
         return response.json()
     except requests.exceptions.RequestException as e:
         return {"error": str(e)}
-       @app.route("/")
+
+@app.route("/")
 def index():
     html_content = """
+    <!DOCTYPE html>
     <html>
         <head>
             <title>TasteGraph Agent Pipeline</title>
@@ -47,7 +49,7 @@ def index():
                     <li><code>GET /</code> - System Status & Overview (This Page)</li>
                     <li><code>POST /api/recommend</code> - Main agentic recommendation pipeline endpoint</li>
                 </ul>
-                <em>Built for hackathon evaluation. Check the <a href="https://github.com/rcortez056-spec/tastegraph-agent-pipeline" target="_blank">GitHub Repository</a> for full code and setup guides.</em></p>
+                <p><em>Built for hackathon evaluation. Check the GitHub Repository for full code and setup guides.</em></p>
             </div>
         </body>
     </html>
@@ -68,3 +70,7 @@ def recommend_pipeline():
         "query": query_term,
         "results": graph_results
     })
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
