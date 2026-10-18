@@ -1,5 +1,16 @@
 # TasteGraph Agent Pipeline
 
+
+
+
+
+
+## 🚀 Quick Start (For Judges)
+
+You can run this pipeline locally in under a minute using either Python or Docker.
+
+### Option 1: Local Python Setup
+...
 ## Project Overview
 TasteGraph is a production-grade autonomous agent pipeline designed to leverage cultural intelligence data for advanced preference modeling and recommendation workflows.
 
