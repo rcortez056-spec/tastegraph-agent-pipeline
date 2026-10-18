@@ -8,7 +8,7 @@ You can run this pipeline locally in under a minute using either Python or Docke
 
 ```bash
 # Clone the repository
-git clone [https://github.com/rcortez056-spec/tastegraph-agent-pipeline.git]
+git clone https://github.com/rcortez056-spec/tastegraph-agent-pipeline.git
 cd tastegraph-agent-pipeline
 
 # Install dependencies
