@@ -1,6 +1,6 @@
 # TasteGraph Agent Pipeline
 
-An autonomous agent pipeline that queries the Qloo API to deliver recommendation insights[cite: 1]. Hosted live on Google Cloud Run with continuous delivery from GitHub.
+An autonomous agent pipeline that queries the Qloo API to deliver recommendation insights. Hosted live on Google Cloud Run with continuous delivery from GitHub.
 
 ---
 
