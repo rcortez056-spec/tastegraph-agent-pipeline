@@ -13,7 +13,7 @@ An autonomous agent pipeline that queries the Qloo API to deliver recommendation
 
 ## 🚀 Quick Start (For Judges)
 
-You can run this pipeline locally in under a minute using Python or Docker[cite: 6].
+You can run this pipeline locally in under a minute using Python or Docker.
 
 ### Option 1: Local Python Setup
 
